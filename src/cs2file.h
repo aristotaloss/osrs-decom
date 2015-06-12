@@ -23,6 +23,7 @@ public:
 
     cs2file(std::vector<char> data);
     std::string disassemble();
+    void decompile();
 
 };
 

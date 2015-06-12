@@ -5,6 +5,8 @@
 #include <array>
 #include <sstream>
 #include "cs2file.h"
+#include "instruction.h"
+#include "cfg.h"
 
 const int getint(char *data) {
 	return ((data[0] & 0xFF) << 24) | ((data[1] & 0xFF) << 16) | ((data[2] & 0xFF) << 8) | (data[3] & 0xFF);
@@ -83,4 +85,16 @@ std::string cs2file::disassemble() {
 	}
 
 	return buffer.str();
+}
+
+void cs2file::decompile() {
+	cfg *graph = new cfg(num_instr);
+
+	// Construct instrs
+	for (int i=0; i<num_instr; i++) {
+		graph->set_instr_at(i, instruction(this->instructions[i], int_operands[i], string_operands[i]));
+	}
+
+	graph->discover_headers();
+	std::cout << "all went well\n";
 }

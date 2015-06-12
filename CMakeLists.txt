@@ -8,5 +8,5 @@ link_directories(lib)
 
 set(SOURCE_FILES src/main.cpp)
 
-add_executable(osrs_decom ${SOURCE_FILES} src/cs2file.cpp src/cs2file.h)
+add_executable(osrs_decom ${SOURCE_FILES} src/cs2file.cpp src/cs2file.h src/instruction.cpp src/instruction.h src/cfg.cpp src/cfg.h)
 target_link_libraries(osrs_decom ${Boost_LIBRARIES} rsfs)

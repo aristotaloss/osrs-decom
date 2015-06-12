@@ -52,6 +52,7 @@ int main(int ac, const char **av) {
 	if (vm.count("dasm")) {
 		std::cout << script.disassemble();
 	}
+	script.decompile();
 
 	return 0;
 }
